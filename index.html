@@ -37,7 +37,7 @@
             <!-- beginning option -->
             <button class="first option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Frango Yin Yang</p>
+              <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -46,7 +46,7 @@
             <!-- beginning option -->
             <button class="first option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Arroz com Barata</p>
+              <p class="name">Arroz com Barata</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">10,50</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -55,7 +55,7 @@
             <!-- beginning option -->
             <button class="first option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Macarrão no Chão</p>
+              <p class="name">Macarrão no Chão</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">11,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -71,7 +71,7 @@
             <!-- beginning option -->
             <button class="second option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Frango Yin Yang</p>
+              <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -80,7 +80,7 @@
             <!-- beginning option -->
             <button class="second option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Frango Yin Yang</p>
+              <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -89,7 +89,7 @@
             <!-- beginning option -->
             <button class="second option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Frango Yin Yang</p>
+              <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -105,7 +105,7 @@
             <!-- beginning option -->
             <button class="third option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Frango Yin Yang</p>
+              <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -114,7 +114,7 @@
             <!-- beginning option -->
             <button class="third option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Frango Yin Yang</p>
+              <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -123,7 +123,7 @@
             <!-- beginning option -->
             <button class="third option" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
-              <p class="product-name">Frango Yin Yang</p>
+              <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
@@ -154,15 +154,19 @@
             </div>
           </div>
           <div class="confirm-buttons">
-            <button class="send">Tudo certo, pode pedir</button>
-            <button class="cancel" onclick="cancel();">Cancelar</button>
+            <button class="send" onclick="sendMessage();">
+              Tudo certo, pode pedir
+            </button>
+            <button class="cancel" onclick="toggleConfirmWindow();">
+              Cancelar
+            </button>
           </div>
         </div>
       </main>
       <!-- end main -->
       <!-- beginning bottom-bar -->
       <div class="bottom-bar">
-        <button class="checkout" onclick="openConfirmOrder();">
+        <button class="checkout" onclick="toggleConfirmWindow();">
           Selecione os 3 itens para fechar o pedido
         </button>
       </div>

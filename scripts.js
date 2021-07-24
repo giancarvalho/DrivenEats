@@ -1,9 +1,18 @@
+const button = document.querySelector(".checkout");
+button.disable = true;
+let first;
+let second;
+let third;
+let total = 0;
+
 function selectButton(button) {
-  let alreadySelected = document.querySelector(
-    "." + button.classList[0] + ".selected"
-  );
+  let className = "." + button.classList[0];
+  let alreadySelected = document.querySelector(className + ".selected");
   if (alreadySelected !== null) {
-    document;
+    alreadySelectedPrice = document.querySelector(
+      className + ".selected" + " .price"
+    ).innerHTML;
+    calcTotal("-", alreadySelectedPrice);
     alreadySelected.classList.remove("selected");
   }
   button.classList.add("selected");
@@ -21,30 +30,49 @@ function addToOrder(item) {
   );
 
   itemNameOrder.innerHTML = document.querySelector(
-    className + ".selected" + " .product-name"
+    className + ".selected" + " .name"
   ).innerHTML;
   itemPriceOrder.innerHTML = document.querySelector(
     className + ".selected" + " .price"
   ).innerHTML;
+
+  addToList(itemNameOrder.innerHTML, className);
+  calcTotal("+", itemPriceOrder.innerHTML);
 }
 
-const button = document.querySelector(".checkout");
-button.disable = true;
+function addToList(itemName, className) {
+  if (className === ".first") {
+    first = itemName;
+  } else if (className === ".second") {
+    second = itemName;
+  } else {
+    third = itemName;
+  }
+}
 
-function calcTotal() {
-  let total = document.querySelector(".total-order");
-  let firstItemPrice = document
-    .querySelector(".order-items .first > .price")
-    .innerHTML.replace(",", ".");
-  let secondItemPrice = document
-    .querySelector(".order-items .second > .price")
-    .innerHTML.replace(",", ".");
-  let thirdItemPrice = document
-    .querySelector(".order-items .third > .price")
-    .innerHTML.replace(",", ".");
+function calcTotal(operator, price) {
+  let confirmTotal = document.querySelector(".total-order");
+  price = price.replace(",", ".");
+  price = Number(price);
 
-  total.innerHTML =
-    Number(firstItemPrice) + Number(secondItemPrice) + Number(thirdItemPrice);
+  if (operator === "+") {
+    total += price;
+  } else {
+    total -= price;
+  }
+
+  let newTotal = total.toFixed(2);
+  confirmTotal.innerHTML = newTotal.replace(".", ",");
+}
+
+function sendMessage() {
+  let message = encodeURIComponent(
+    `Olá, gostaria de fazer o pedido: \n - Prato: ${first} \n - Bebida: ${second} \n - Sobremesa: ${third} \n Total: R$ ${total.toFixed(
+      2
+    )}`
+  );
+
+  window.open(`https://wa.me/5532999744968?text=${message}`, "_self");
 }
 
 function enableCheckoutButton() {
@@ -56,16 +84,10 @@ function enableCheckoutButton() {
     button.disable = false;
     button.classList.add("active");
     button.innerHTML = "Fechar Pedido";
-    calcTotal();
   }
 }
 
-function openConfirmOrder() {
-  document.querySelector(".overlay").classList.add("active");
-  document.querySelector(".confirm-order").classList.add("active");
-}
-
-function cancel() {
-  document.querySelector(".overlay").classList.remove("active");
-  document.querySelector(".confirm-order").classList.remove("active");
+function toggleConfirmWindow() {
+  document.querySelector(".overlay").classList.toggle("active");
+  document.querySelector(".confirm-order").classList.toggle("active");
 }
