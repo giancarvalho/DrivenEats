@@ -1,6 +1,8 @@
 // global varibles
 const button = document.querySelector(".checkout");
 button.disable = true;
+let customerName;
+let customerAddress;
 let first;
 let second;
 let third;
@@ -8,13 +10,13 @@ let total = 0;
 
 // allows only one button to be selected per class
 function selectButton(item) {
-  let className = "." + item.classList[0];
-  let alreadySelected = document.querySelector(className + ".selected");
+  let categoryName = "." + item.classList[0];
+  let alreadySelected = document.querySelector(categoryName + ".selected");
 
   // checks if another button of the class has already been selected
   if (alreadySelected !== null) {
     alreadySelectedPrice = document.querySelector(
-      className + ".selected" + " .price"
+      categoryName + ".selected" + " .price"
     ).innerHTML;
     // calls calcTotal to subtract the diselected price from the total sum
     calcTotal("-", alreadySelectedPrice);
@@ -23,35 +25,35 @@ function selectButton(item) {
   item.classList.add("selected");
   // calls enableCheckoutButton function to check if all conditions are met
   enableCheckoutButton();
-  // pass on which class triggered the event to add item to order list
-  addToOrder(className);
+  // pass on which category triggered the event to add item to order list
+  addToOrder(categoryName);
 }
 // add items to Confirm Order list, placing them at their respective positions
-function addToOrder(className) {
-  // fetch the positon of the class on Confirm Order list
+function addToOrder(categoryName) {
+  // fetch the positon of the category on Confirm Order list
   let itemNameOrder = document.querySelector(
-    ".order-items " + className + " > .name"
+    ".order-items " + categoryName + " > .name"
   );
   let itemPriceOrder = document.querySelector(
-    ".order-items " + className + " > .price"
+    ".order-items " + categoryName + " > .price"
   );
   // insert name and price of the item to the confirm order list
   itemNameOrder.innerHTML = document.querySelector(
-    className + ".selected" + " .name"
+    categoryName + ".selected" + " .name"
   ).innerHTML;
   itemPriceOrder.innerHTML = document.querySelector(
-    className + ".selected" + " .price"
+    categoryName + ".selected" + " .price"
   ).innerHTML;
   // pass on item name and price to form the message and calculate the total
-  addNameToMessage(itemNameOrder.innerHTML, className);
+  addNameToMessage(itemNameOrder.innerHTML, categoryName);
   calcTotal("+", itemPriceOrder.innerHTML);
 }
 
 // assign item name to the its respective variable
-function addNameToMessage(itemName, className) {
-  if (className === ".first") {
+function addNameToMessage(itemName, categoryName) {
+  if (categoryName === ".first") {
     first = itemName;
-  } else if (className === ".second") {
+  } else if (categoryName === ".second") {
     second = itemName;
   } else {
     third = itemName;
@@ -73,12 +75,21 @@ function calcTotal(operator, price) {
   confirmTotal.innerHTML = newTotal.replace(".", ",");
 }
 
+function nextWindow() {
+  customerName = document.querySelector("#customer-name").value;
+  customerAddress = document.querySelector("#customer-address").value;
+  toggleAddressWindow();
+  toggleConfirmWindow();
+}
+
 // compose WhatsApp message and encodes it
 function sendMessage() {
   let message = encodeURIComponent(
     `Olá, gostaria de fazer o pedido: \n - Prato: ${first} \n - Bebida: ${second} \n - Sobremesa: ${third} \n Total: R$ ${total.toFixed(
       2
-    )}`
+    )} \n
+    Nome: ${customerName} \n
+    Endereço: ${customerAddress}`
   );
   window.open(`https://wa.me/5532999744968?text=${message}`, "_self");
 }
@@ -99,6 +110,13 @@ function enableCheckoutButton() {
 
 // toggles confirm window and overlay
 function toggleConfirmWindow() {
-  document.querySelector(".overlay").classList.toggle("active");
   document.querySelector(".confirm-order").classList.toggle("active");
+}
+
+function toggleOverlay() {
+  document.querySelector(".overlay").classList.toggle("active");
+}
+
+function toggleAddressWindow() {
+  document.querySelector(".address").classList.toggle("active");
 }

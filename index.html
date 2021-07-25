@@ -30,111 +30,136 @@
       <!-- end top-bar -->
       <!-- beginning main -->
       <main>
-        <!-- beginning category -->
+        <!-- beginning first category -->
         <div class="category">
           <p>Primeiro, seu prato</p>
           <div class="products">
-            <!-- beginning option -->
-            <button class="first option" onclick="selectButton(this)">
+            <!-- beginning item -->
+            <button class="first item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
-            <!-- beginning option -->
-            <button class="first option" onclick="selectButton(this)">
+            <!-- end item -->
+            <!-- beginning item -->
+            <button class="first item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Arroz com Barata</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">10,50</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
-            <!-- beginning option -->
-            <button class="first option" onclick="selectButton(this)">
+            <!-- end item -->
+            <!-- beginning item -->
+            <button class="first item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Macarrão no Chão</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">11,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
+            <!-- end item -->
           </div>
         </div>
         <!-- end category -->
-        <!-- beginning category -->
+        <!-- beginning second category -->
         <div class="category">
           <p>Agora, sua bebida</p>
           <div class="products">
-            <!-- beginning option -->
-            <button class="second option" onclick="selectButton(this)">
+            <!-- beginning item -->
+            <button class="second item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
-            <!-- beginning option -->
-            <button class="second option" onclick="selectButton(this)">
+            <!-- end item -->
+            <!-- beginning item -->
+            <button class="second item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
-            <!-- beginning option -->
-            <button class="second option" onclick="selectButton(this)">
+            <!-- end item -->
+            <!-- beginning item -->
+            <button class="second item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
+            <!-- end item -->
           </div>
         </div>
         <!-- end category -->
-        <!-- beginning category -->
+        <!-- beginning third category -->
         <div class="category">
           <p>Por fim, sua sobremesa</p>
           <div class="products">
-            <!-- beginning option -->
-            <button class="third option" onclick="selectButton(this)">
+            <!-- beginning item -->
+            <button class="third item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
-            <!-- beginning option -->
-            <button class="third option" onclick="selectButton(this)">
+            <!-- end item -->
+            <!-- beginning item -->
+            <button class="third item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
-            <!-- beginning option -->
-            <button class="third option" onclick="selectButton(this)">
+            <!-- end item -->
+            <!-- beginning item -->
+            <button class="third item" onclick="selectButton(this)">
               <img src="/assets/frango_yin_yang 1.png" class="image-product" />
               <p class="name">Frango Yin Yang</p>
               <p class="description">Um pouco de batata, um pouco de salada</p>
               <p>R$<span class="price">14,90</span></p>
               <img src="assets/checkmark-circle 2.png" class="checkmark" />
             </button>
-            <!-- end option -->
+            <!-- end item -->
           </div>
         </div>
         <!-- end category -->
-        <div class="overlay"></div>
+
+        <!-- beginning input address -->
+        <div class="address modal">
+          <div>
+            <input
+              type="text"
+              id="customer-name"
+              placeholder="Digite seu nome"
+            />
+            <input
+              type="text"
+              id="customer-address"
+              placeholder="Digite seu endereço"
+            />
+          </div>
+          <div>
+            <button class="send" onclick="nextWindow();">Prosseguir</button>
+            <button
+              class="cancel"
+              onclick="toggleAddressWindow(); toggleOverlay();"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+        <!-- end input address -->
         <!-- beginning confirm order window -->
-        <div class="confirm-order">
+        <div class="confirm-order modal">
           <strong>Confirme seu pedido</strong>
           <div class="order-items">
             <div class="first">
@@ -158,17 +183,24 @@
             <button class="send" onclick="sendMessage();">
               Tudo certo, pode pedir
             </button>
-            <button class="cancel" onclick="toggleConfirmWindow();">
+            <button
+              class="cancel"
+              onclick="toggleConfirmWindow(); toggleOverlay()"
+            >
               Cancelar
             </button>
           </div>
         </div>
         <!-- end confirm order window -->
+        <div class="overlay"></div>
       </main>
       <!-- end main -->
       <!-- beginning bottom-bar -->
       <div class="bottom-bar">
-        <button class="checkout" onclick="toggleConfirmWindow();">
+        <button
+          class="checkout"
+          onclick="toggleAddressWindow(); toggleOverlay();"
+        >
           Selecione os 3 itens para fechar o pedido
         </button>
       </div>

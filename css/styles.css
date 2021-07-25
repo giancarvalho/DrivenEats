@@ -1,3 +1,5 @@
+/* global styles */
+
 * {
   box-sizing: border-box;
 }
@@ -20,6 +22,7 @@ strong {
   height: 100vh;
 }
 
+/* header styles */
 header {
   background-color: #cf2b2b;
   width: 100%;
@@ -42,6 +45,7 @@ header p {
   margin-top: 5px;
 }
 
+/* beginning main styles */
 main {
   background-color: #e5e5e5;
   width: 100%;
@@ -49,7 +53,7 @@ main {
 }
 
 .category {
-  margin-left: 20px;
+  margin: 0 0 20px 20px;
 }
 .category > p {
   font-size: 26px;
@@ -58,7 +62,6 @@ main {
 
 .products {
   width: 100%;
-  height: 250px;
   display: flex;
   overflow-y: scroll;
 }
@@ -67,14 +70,8 @@ main {
   display: none;
 }
 
-input {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.option {
+/* item button styles */
+.item {
   height: 202px;
   width: 172px;
   display: flex;
@@ -82,29 +79,32 @@ input {
   justify-content: space-between;
   background: #ffffff;
   border-radius: 10px;
-  margin-right: 16px;
+  margin: 5px 2px 5px 16px;
   padding: 13px;
-  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.3);
   position: relative;
   border: none;
-}
-
-.selected {
-  border: 5px solid #32b72f;
-  padding: 8px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-}
-
-.selected .checkmark {
-  display: initial;
 }
 
 .product-image {
   width: 144px;
   height: 82px;
 }
-.option p {
-  margin-top: 10px;
+
+.item p {
+  font-weight: bold;
+}
+.item .description {
+  color: #a6a6a6;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+/* selected item styles */
+.selected {
+  border: 5px solid #32b72f;
+  padding: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 .checkmark {
@@ -114,12 +114,11 @@ input {
   display: none;
 }
 
-.description {
-  color: #a6a6a6;
-  font-weight: 300;
-  font-size: 15px;
+.selected .checkmark {
+  display: initial;
 }
 
+/* bottom-bar styles */
 .bottom-bar {
   display: flex;
   align-items: center;
@@ -148,7 +147,8 @@ input {
   background-color: #32b72f;
 }
 
-.confirm-order {
+/* modal windows styles */
+.modal {
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -168,10 +168,66 @@ input {
   z-index: 3;
 }
 
-.confirm-order.active {
+.modal.active {
   display: flex;
 }
 
+.send {
+  border: none;
+  background-color: #ffffff;
+  height: 50%;
+  width: 88%;
+  border-radius: 100px;
+  color: #50d074;
+  font-size: 18px;
+  margin: 10px auto;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancel {
+  border: 0;
+  background-color: transparent;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: rgb(255, 255, 255, 0.9);
+  pointer-events: none;
+}
+
+.overlay.active {
+  display: initial;
+}
+
+/* address window style */
+.address > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 45%;
+}
+
+.address input {
+  border: 1px solid #c6c6c6;
+  height: 50%;
+  width: 95%;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+/* confirm window style */
 .order-items {
   height: 100%;
   width: 100%;
@@ -194,41 +250,4 @@ input {
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.send {
-  border: none;
-  background-color: #ffffff;
-  height: 50%;
-  width: 88%;
-  border-radius: 100px;
-  color: #50d074;
-  font-size: 18px;
-  margin: 10px auto;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.cancel {
-  border: 0;
-  background-color: transparent;
-  font-weight: bold;
-  color: #ffffff;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  background-color: rgb(255, 255, 255, 0.9);
-}
-
-.overlay.active {
-  display: initial;
 }
