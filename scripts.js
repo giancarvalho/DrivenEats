@@ -75,6 +75,7 @@ function calcTotal(operator, price) {
   confirmTotal.innerHTML = newTotal.replace(".", ",");
 }
 
+// retrieves name and address, verifies if blanks were filled and toggles confirm window
 function nextWindow() {
   customerName = document.querySelector("#customer-name").value;
   customerAddress = document.querySelector("#customer-address").value;
