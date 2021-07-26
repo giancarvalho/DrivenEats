@@ -78,8 +78,13 @@ function calcTotal(operator, price) {
 function nextWindow() {
   customerName = document.querySelector("#customer-name").value;
   customerAddress = document.querySelector("#customer-address").value;
-  toggleAddressWindow();
-  toggleConfirmWindow();
+
+  if (customerName === "" || customerAddress === "") {
+    alert("Por favor, preencha seu nome e endereço para prosseguir");
+  } else {
+    toggleAddressWindow();
+    toggleConfirmWindow();
+  }
 }
 
 // compose WhatsApp message and encodes it

@@ -86,15 +86,17 @@ main {
   border: none;
 }
 
-.product-image {
+.image-product {
   width: 144px;
   height: 82px;
+  border-radius: 4px;
 }
 
 .item p {
   font-weight: bold;
 }
 .item .description {
+  height: 40px;
   color: #a6a6a6;
   font-weight: 300;
   font-size: 15px;
